@@ -22,7 +22,7 @@
 
 				<hr/>
 
-				<div  >
+				<div>
 				   
 				   <button class="addfields" ng-click="addNewChoice()">Add fields</button>
 				      		<button class="remove"  ng-click="removeChoice()">-</button>
@@ -47,20 +47,28 @@
 						</td>
 			  		</tr>
 				</thead>
-				<tbody>					
-				  <tr ng-repeat="project in projects track by $index">
-				  	<td class="project-name"><span class="project-imdc-nr">{{project.imdcNumber}}</span> {{project.name}}</td>
-				    <td ng-repeat="date in dates track by $index">
-				    	<fieldset >
-				      		<input type="text" ng-model="project.customId" name="" placeholder="Enter nr of hours">
-				      		<input type="text" ng-model="project.comment" name="" placeholder="Enter comments">
-				   		</fieldset>
-				    </td>
-				  </tr>
+				<tbody>
+					<form name="projectsForm">						
+					  <tr ng-repeat="project in projects track by $index">
+					  	<td class="project-name"><span class="project-imdc-nr">{{project.imdcNumber}}</span> {{project.name}}</td>
+					    <td ng-repeat="date in project.dates track by $index">
+					    	<!-- <fieldset > -->
+					    	<div class="form-group">
+					      		<input type="number" max="8" required class="form-control" ng-model="project.dates[$index].value" name="" placeholder="Enter nr of hours">
+					    	</div>
+					    	<div class="form-group">
+					      		<input type="text" class="form-control" ng-model="project.dates[$index].comment" name="" placeholder="Enter comments">
+					    	</div>
+					   		<!-- </fieldset> -->
+					    </td>
+					  </tr>
+					</form>			
 				</tbody>
 			</table>
 
 		{{dates}}
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
 		{{projects}}
 		</div>
 		

@@ -21,10 +21,38 @@ var app = angular.module('shanidkvApp', []);
   ];
 
   $scope.projects = [
-    {name: "Project 1", imdcNumber: "5538"},
-    {name: "Project TRES", imdcNumber: "0999"},
-    {name: "Rio Bogota", imdcNumber: "H555"},
-    {name: "PIM", imdcNumber: "1852"}
+    {name: "Project 1", imdcNumber: "5538", dates: [
+    {month:"December", dayName: "Tuesday", day: "29"},
+    {month:"December", dayName: "Wednesday", day: "30"},
+    {month:"December", dayName: "Thursday", day: "31"},
+    {month:"January", dayName: "Friday", day: "01"},
+    {month:"January", dayName: "Saturday", day: "02"},
+    {month:"January", dayName: "Sunday", day: "03"}
+  ]},
+    {name: "Project TRES", imdcNumber: "0999", dates: [
+    {month:"December", dayName: "Tuesday", day: "29"},
+    {month:"December", dayName: "Wednesday", day: "30"},
+    {month:"December", dayName: "Thursday", day: "31"},
+    {month:"January", dayName: "Friday", day: "01"},
+    {month:"January", dayName: "Saturday", day: "02"},
+    {month:"January", dayName: "Sunday", day: "03"}
+  ]},
+    {name: "Rio Bogota", imdcNumber: "H555", dates: [
+    {month:"December", dayName: "Tuesday", day: "29"},
+    {month:"December", dayName: "Wednesday", day: "30"},
+    {month:"December", dayName: "Thursday", day: "31"},
+    {month:"January", dayName: "Friday", day: "01"},
+    {month:"January", dayName: "Saturday", day: "02"},
+    {month:"January", dayName: "Sunday", day: "03"}
+  ]},
+    {name: "PIM", imdcNumber: "1852", dates: [
+    {month:"December", dayName: "Tuesday", day: "29"},
+    {month:"December", dayName: "Wednesday", day: "30"},
+    {month:"December", dayName: "Thursday", day: "31"},
+    {month:"January", dayName: "Friday", day: "01"},
+    {month:"January", dayName: "Saturday", day: "02"},
+    {month:"January", dayName: "Sunday", day: "03"}
+  ]}
   ];
 
   $scope.choices = [];
@@ -45,12 +73,12 @@ var app = angular.module('shanidkvApp', []);
         var customId = project["imdcNumber"] + "-" + $filter('limitTo')(date["month"], 3) + "-" + $filter('limitTo')(date["dayName"], 3) + "-" + date["day"];
         console.log(customId);
         $scope.choices.push({'id':'choice'+customId});
-        $scope.projects[key]["customId"] = customId;
+        // $scope.projects[key]["customId"] = customId;
 
       });
     });
   }
 
-  getChoiceId();
+  // getChoiceId();
   
 });
